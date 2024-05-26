@@ -1,5 +1,3 @@
 require("mitch.remap")
+require("mitch.set")
 require'lspconfig'.pyright.setup{}
-vim.wo.number = true
-vim.wo.relativenumber = true
-print("")
