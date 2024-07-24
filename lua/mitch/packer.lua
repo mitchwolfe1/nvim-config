@@ -31,5 +31,16 @@ return require('packer').startup(function(use)
       'nvim-tree/nvim-web-devicons', -- optional
     },
   }
+  use {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+  }
+  use {
+    "numToStr/Comment.nvim",
+      config = function()
+        require('Comment').setup()
+      end
+  }
 end)
 

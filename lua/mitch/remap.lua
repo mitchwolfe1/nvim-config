@@ -30,3 +30,7 @@ vim.keymap.set("n", "<leader>tc", ":tabclose<CR>")
 -- Split control
 vim.keymap.set("n", "<leader>vs", ":vsplit<CR>")
 vim.keymap.set("n", "<leader>hs", ":split<CR>")
+vim.keymap.set("n", "<leader>o", ":wincmd p<CR>")
+
+-- LSP
+vim.keymap.set("n", "<leader>i", '<cmd>lua vim.diagnostic.open_float()<CR>')
