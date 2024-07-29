@@ -5,8 +5,6 @@ vim.g.loaded_netrwPlugin = 1
 -- optionally enable 24-bit colour
 vim.opt.termguicolors = true
 
--- empty setup using defaults
-require("nvim-tree").setup()
 
 -- OR setup with some options
 require("nvim-tree").setup({
@@ -17,12 +15,23 @@ require("nvim-tree").setup({
     width = 30,
   },
   renderer = {
-    group_empty = true,
+    group_empty = false,
+    indent_markers = {
+      enable = true
+    }
   },
   filters = {
-    dotfiles = true,
+    dotfiles = false,
   },
 })
 
-vim.keymap.set("n", "<leader>O", ":NvimTreeFocus<CR>")
+vim.keymap.set("n", "<leader>o", ":NvimTreeFocus<CR>")
+vim.keymap.set("n", "<leader>ff", ":NvimTreeFindFile<CR>")
 
+-- Automatically open nvim-tree when opening a file or creating a new tab
+vim.api.nvim_exec([[
+  autocmd VimEnter * NvimTreeToggle
+  autocmd TabNewEntered * NvimTreeToggle
+]], false)
+
+-- To toggle hidden files, Focus on tree and press `H`

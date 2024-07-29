@@ -22,15 +22,14 @@ vim.keymap.set("n", "<leader>d", "\"_d")
 vim.keymap.set("v", "<leader>d", "\"_d")
 
 -- Tab control
-vim.keymap.set("n", "<C-n>", ":tabprevious<CR>")
-vim.keymap.set("n", "<C-m>", ":tabnext<CR>")
+vim.keymap.set("n", "<C-,>", ":tabprevious<CR>")
+vim.keymap.set("n", "<C-.>", ":tabnext<CR>")
 vim.keymap.set("n", "<leader>tn", ":tabnew<CR>")
 vim.keymap.set("n", "<leader>tc", ":tabclose<CR>")
 
 -- Split control
 vim.keymap.set("n", "<leader>vs", ":vsplit<CR>")
 vim.keymap.set("n", "<leader>hs", ":split<CR>")
-vim.keymap.set("n", "<leader>o", ":wincmd p<CR>")
 
 -- LSP
 vim.keymap.set("n", "<leader>i", '<cmd>lua vim.diagnostic.open_float()<CR>')

@@ -12,11 +12,18 @@ return require('packer').startup(function(use)
 	  -- or                            , branch = '0.1.x',
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
+  -- use({ 
+	 --  "rose-pine/neovim", 
+	 --  as = "rose-pine", 
+	 --  config = function()
+		--   vim.cmd('colorscheme rose-pine')					
+	 --  end
+  -- })
   use({ 
-	  "rose-pine/neovim", 
-	  as = "rose-pine", 
+	  "rebelot/kanagawa.nvim", 
+	  as = "kanagawa", 
 	  config = function()
-		  vim.cmd('colorscheme rose-pine')					
+		  vim.cmd('colorscheme kanagawa')					
 	  end
   })
 
@@ -31,16 +38,39 @@ return require('packer').startup(function(use)
       'nvim-tree/nvim-web-devicons', -- optional
     },
   }
+
   use {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
   }
+
   use {
     "numToStr/Comment.nvim",
       config = function()
         require('Comment').setup()
       end
   }
+
+  use({
+      "utilyre/barbecue.nvim",
+      tag = "*",
+      requires = {
+        "SmiteshP/nvim-navic",
+        "nvim-tree/nvim-web-devicons", -- optional dependency
+      },
+      after = "nvim-web-devicons", -- keep this if you're using NvChad
+      config = function()
+        require("barbecue").setup()
+      end,
+    })
+
+  use {
+    "lukas-reineke/indent-blankline.nvim",
+    config = function()
+      require("ibl").setup()
+    end
+  }
+
 end)
 

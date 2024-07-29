@@ -6,7 +6,7 @@ local default_float_bg = vim.api.nvim_get_hl_by_name("NormalFloat", true).backgr
 local default_nc_bg = vim.api.nvim_get_hl_by_name("NormalNC", true).background
 
 function ColorMyPencils(color)
-	color = color or "rose-pine"
+	color = color or "kanagawa"
 	vim.cmd.colorscheme(color)
     ToggleTransparency(is_transparent)
 end
