@@ -1,4 +1,3 @@
-
 -- Function to format the current file with Black
 function format_with_black()
     local buf = vim.api.nvim_get_current_buf()
@@ -23,4 +22,6 @@ augroup fmt
     autocmd BufWritePre *.py lua format_with_black()
 augroup END
 ]])
+
+
 

@@ -1,6 +1,3 @@
-vim.g.mapleader = " "
--- vim.keymap.set("n", "<leader>o", vim.cmd.Ex)
-
 -- Move blocks up or down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -30,6 +27,5 @@ vim.keymap.set("n", "<leader>tc", ":tabclose<CR>")
 -- Split control
 vim.keymap.set("n", "<leader>vs", ":vsplit<CR>")
 vim.keymap.set("n", "<leader>hs", ":split<CR>")
-
--- LSP
 vim.keymap.set("n", "<leader>i", '<cmd>lua vim.diagnostic.open_float()<CR>')
+
