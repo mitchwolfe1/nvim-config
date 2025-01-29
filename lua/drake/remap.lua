@@ -29,3 +29,5 @@ vim.keymap.set("n", "<leader>vs", ":vsplit<CR>")
 vim.keymap.set("n", "<leader>hs", ":split<CR>")
 vim.keymap.set("n", "<leader>i", '<cmd>lua vim.diagnostic.open_float()<CR>')
 
+-- Exit terminal mode with Escape
+vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
