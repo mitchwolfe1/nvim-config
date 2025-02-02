@@ -7,7 +7,7 @@ return {
             options = { dim_inactive = true },
             groups = {
                 all = {
-                    Visual = { bg = "#5f87af", fg = "NONE" } -- Change to your preferred color
+                    Visual = { bg = "#835faf", fg = "NONE" } -- Change to your preferred color
                 }
             }
         }
