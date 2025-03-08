@@ -31,6 +31,7 @@ vim.keymap.set("n", "<leader>hs", ":split<CR>")
 -- LSP
 vim.keymap.set("n", "<leader>i", '<cmd>lua vim.diagnostic.open_float()<CR>')
 vim.keymap.set("n", "<leader>hi", '<cmd>lua vim.lsp.buf.hover()<CR>')
+vim.keymap.set("n", "gd", '<cmd>lua vim.lsp.buf.definition()<CR>')
 
 -- Exit terminal mode with Escape
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
