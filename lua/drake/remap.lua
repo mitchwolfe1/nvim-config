@@ -35,3 +35,6 @@ vim.keymap.set("n", "gd", '<cmd>lua vim.lsp.buf.definition()<CR>')
 
 -- Exit terminal mode with Escape
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
+
+-- No highlight
+vim.keymap.set("n", "<leader><Esc>", ':noh<CR>')
