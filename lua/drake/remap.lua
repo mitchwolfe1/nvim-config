@@ -7,16 +7,16 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- Paste over something without modifying register
-vim.keymap.set("x", "<leader>p", "\"_dP")
+vim.keymap.set("x", "<leader>p", '"_dP')
 
 -- Yank to clipboard
-vim.keymap.set("n", "<leader>y", "\"+y")
-vim.keymap.set("v", "<leader>y", "\"+y")
-vim.keymap.set("n", "<leader>Y", "\"+Y")
+vim.keymap.set("n", "<leader>y", '"+y')
+vim.keymap.set("v", "<leader>y", '"+y')
+vim.keymap.set("n", "<leader>Y", '"+Y')
 
 -- Delete to void register
-vim.keymap.set("n", "<leader>d", "\"_d")
-vim.keymap.set("v", "<leader>d", "\"_d")
+vim.keymap.set("n", "<leader>d", '"_d')
+vim.keymap.set("v", "<leader>d", '"_d')
 
 -- Tab control
 vim.keymap.set("n", "<C-,>", ":tabprevious<CR>")
@@ -29,18 +29,22 @@ vim.keymap.set("n", "<leader>vs", ":vsplit<CR>")
 vim.keymap.set("n", "<leader>hs", ":split<CR>")
 
 local opts = { noremap = true, silent = true }
-vim.keymap.set('n', '<C-h>', '<C-w>h', opts)
-vim.keymap.set('n', '<C-j>', '<C-w>j', opts)
-vim.keymap.set('n', '<C-k>', '<C-w>k', opts)
-vim.keymap.set('n', '<C-l>', '<C-w>l', opts)
+vim.keymap.set("n", "<C-h>", "<C-w>h", opts)
+vim.keymap.set("n", "<C-j>", "<C-w>j", opts)
+vim.keymap.set("n", "<C-k>", "<C-w>k", opts)
+vim.keymap.set("n", "<C-l>", "<C-w>l", opts)
 
 -- LSP
-vim.keymap.set("n", "<leader>i", '<cmd>lua vim.diagnostic.open_float()<CR>')
-vim.keymap.set("n", "<leader>hi", '<cmd>lua vim.lsp.buf.hover()<CR>')
-vim.keymap.set("n", "gd", '<cmd>lua vim.lsp.buf.definition()<CR>')
+vim.keymap.set("n", "<leader>i", "<cmd>lua vim.diagnostic.open_float()<CR>")
+vim.keymap.set("n", "<leader>hi", "<cmd>lua vim.lsp.buf.hover()<CR>")
+vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
 
 -- Exit terminal mode with Escape
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
 
 -- No highlight
-vim.keymap.set("n", "<leader><Esc>", ':noh<CR>')
+vim.keymap.set("n", "<leader><Esc>", ":noh<CR>")
+
+-- Stay in visual mode after indenting
+vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", ">", ">gv")

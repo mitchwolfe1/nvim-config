@@ -39,8 +39,7 @@ return {
       -- …etc…
     end
 
-    -- 5) Loop and register each server with lspconfig
-    local lspconfig = require("lspconfig")
+    -- 5) Loop and register each server with the new vim.lsp.config API
     for _, name in ipairs(servers) do
       local opts = {
         on_attach   = on_attach,
@@ -53,7 +52,9 @@ return {
         }
       end
 
-      lspconfig[name].setup(opts)
+      -- Use new nvim 0.11+ API
+      vim.lsp.config[name] = opts
+      vim.lsp.enable(name)
     end
   end,
 }
