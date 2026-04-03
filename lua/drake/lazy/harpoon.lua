@@ -6,8 +6,15 @@ return {
 		local harpoon = require("harpoon")
 
 		-- REQUIRED
-		harpoon:setup()
+		harpoon:setup({
+			settings = {
+				sync_on_ui_close = true,
+			}
+		})
 		-- REQUIRED
+
+        local harpoon_extensions = require("harpoon.extensions")
+        harpoon:extend(harpoon_extensions.builtins.highlight_current_file())
 
 		vim.keymap.set("n", "<leader>a", function()
 			harpoon:list():add()

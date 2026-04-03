@@ -48,3 +48,6 @@ vim.keymap.set("n", "<leader><Esc>", ":noh<CR>")
 -- Stay in visual mode after indenting
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
+
+-- Toggle word wrap
+vim.keymap.set("n", "<leader>tw", ":set wrap!<CR>", { desc = "Toggle word wrap" })
