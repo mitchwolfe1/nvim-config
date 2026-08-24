@@ -1,7 +1,10 @@
 -- ~/.config/nvim/lua/drake/lazy/mason-lspconfig.lua
 return {
   "williamboman/mason-lspconfig.nvim",
-  dependencies = { "williamboman/mason.nvim" },
+  dependencies = {
+    "williamboman/mason.nvim",
+    "neovim/nvim-lspconfig",
+  },
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     -- 1) Bootstrap Mason
@@ -11,6 +14,7 @@ return {
     local servers = {
       "lua_ls",
       "solargraph",
+      "rust_analyzer",
       -- add any others here…
     }
     require("mason-lspconfig").setup {
