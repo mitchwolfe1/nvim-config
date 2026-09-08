@@ -13,6 +13,7 @@ return {
     -- 2) The LSP servers you want:
     local servers = {
       "lua_ls",
+      "pyright",
       "solargraph",
       "rust_analyzer",
       -- add any others here…
@@ -54,11 +55,11 @@ return {
       end
 
       -- <– your normal keymaps go here –>
-      local bufmap = function(lhs, rhs)
-        vim.keymap.set("n", lhs, rhs, { buffer = bufnr })
+      local bufmap = function(lhs, rhs, desc)
+        vim.keymap.set("n", lhs, rhs, { buffer = bufnr, desc = desc })
       end
-      bufmap("gd", vim.lsp.buf.definition)
-      bufmap("K",  vim.lsp.buf.hover)
+      bufmap("gd", vim.lsp.buf.definition, "Go to definition")
+      bufmap("K", vim.lsp.buf.hover, "Show hover documentation")
       -- …etc…
     end
 
