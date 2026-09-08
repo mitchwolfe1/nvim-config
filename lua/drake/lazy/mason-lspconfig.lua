@@ -34,6 +34,25 @@ return {
         client.server_capabilities.documentRangeFormattingProvider = false
       end
 
+      -- rustfmt is provided through rust-analyzer. none-ls removed its
+      -- unmaintained rustfmt builtin, so keep format-on-save on the LSP path.
+      if client.name == "rust_analyzer" and client:supports_method("textDocument/formatting", bufnr) then
+        local group = vim.api.nvim_create_augroup("RustLspFormatting", { clear = false })
+        vim.api.nvim_clear_autocmds({ group = group, buffer = bufnr })
+        vim.api.nvim_create_autocmd("BufWritePre", {
+          group = group,
+          buffer = bufnr,
+          callback = function()
+            vim.lsp.buf.format({
+              bufnr = bufnr,
+              filter = function(fmt_client)
+                return fmt_client.name == "rust_analyzer"
+              end,
+            })
+          end,
+        })
+      end
+
       -- <– your normal keymaps go here –>
       local bufmap = function(lhs, rhs)
         vim.keymap.set("n", lhs, rhs, { buffer = bufnr })

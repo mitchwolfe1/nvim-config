@@ -16,11 +16,10 @@ return {
           }),
           formatting.black,
           formatting.stylua,
-          formatting.rustfmt,
         },
         on_attach = function(client, bufnr)
-          if client.supports_method("textDocument/formatting") then
-            local aug = vim.api.nvim_create_augroup("LspFormatting", {})
+          if client:supports_method("textDocument/formatting", bufnr) then
+            local aug = vim.api.nvim_create_augroup("LspFormatting", { clear = false })
             vim.api.nvim_clear_autocmds({ group = aug, buffer = bufnr })
             vim.api.nvim_create_autocmd("BufWritePre", {
               group    = aug,
@@ -60,10 +59,9 @@ return {
     },
     config = function()
       require("mason-null-ls").setup({
-        ensure_installed       = { "prettier", "black", "stylua", "rustfmt" },
+        ensure_installed       = { "prettier", "black", "stylua" },
         automatic_installation = true,
       })
     end,
   },
 }
-
