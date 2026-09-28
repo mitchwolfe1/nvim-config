@@ -22,6 +22,23 @@ return {
       ensure_installed = servers,
     }
 
+    -- Tailwind's .git fallback would treat ~/hypelab, a collection of
+    -- separate projects, as one workspace even for root-level Markdown files.
+    local tailwind = vim.lsp.config.tailwindcss
+    if tailwind and tailwind.root_dir then
+      local tailwind_root_dir = tailwind.root_dir
+      local project_collection = vim.fs.normalize(vim.env.HOME .. "/hypelab")
+      vim.lsp.config("tailwindcss", {
+        root_dir = function(bufnr, on_dir)
+          tailwind_root_dir(bufnr, function(root)
+            if root and vim.fs.normalize(root) ~= project_collection then
+              on_dir(root)
+            end
+          end)
+        end,
+      })
+    end
+
     -- 3) Capabilities for nvim-cmp / LSP
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
